@@ -1,4 +1,4 @@
-package com.hibob.kotlintemplate
+package com.hibob.hibobPublicMcp
 
 import com.hibob.db.jooq.JooqTable
 import com.hibob.id.CompanyId

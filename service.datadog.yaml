@@ -1,7 +1,7 @@
 schema-version: v2.2
-dd-service: kotlin-template
+dd-service: hibob-public-mcp
 team: sre-team
-application: kotlin-template
+application: hibob-public-mcp
 tier: "1"
 type: web
 languages:
@@ -10,13 +10,13 @@ links:
   - name: Source
     type: repo
     provider: github
-    url: https://github.com/hibobio/kotlin-template
+    url: https://github.com/hibobio/hibob-public-mcp
   - name: Deployment
     type: repo
     provider: github
-    url: https://github.com/hibobio/kotlin-template
+    url: https://github.com/hibobio/hibob-public-mcp
 tags:
-  - service:kotlin-template
+  - service:hibob-public-mcp
 integrations:
   pagerduty:
     service-url: https://hibob.eu.pagerduty.com/service-directory/TODO

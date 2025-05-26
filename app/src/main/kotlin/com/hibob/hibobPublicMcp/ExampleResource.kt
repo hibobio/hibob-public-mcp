@@ -1,4 +1,4 @@
-package com.hibob.kotlintemplate
+package com.hibob.hibobPublicMcp
 
 import com.hibob.authentication.Authentication
 import com.hibob.authentication.Secured

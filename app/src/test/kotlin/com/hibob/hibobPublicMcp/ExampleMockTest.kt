@@ -1,4 +1,4 @@
-package com.hibob.kotlintemplate
+package com.hibob.hibobPublicMcp
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers

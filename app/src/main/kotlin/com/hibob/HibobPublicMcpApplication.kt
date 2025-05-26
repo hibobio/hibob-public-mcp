@@ -15,8 +15,8 @@ import org.springframework.boot.runApplication
         JmxEndpointAutoConfiguration::class,
     ],
 )
-class KotlinTemplateApplication
+class HibobPublicMcpApplication
 
 fun main(args: Array<String>) {
-    runApplication<KotlinTemplateApplication>(*args)
+    runApplication<HibobPublicMcpApplication>(*args)
 }

@@ -1,4 +1,4 @@
-rootProject.name = "kotlin-template"
+rootProject.name = "hibob-public-mcp"
 include("app")
 include("lib")
 
