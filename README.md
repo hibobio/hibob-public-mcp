@@ -1,4 +1,4 @@
-# kotlin-template
+# hibob-public-mcp
 
 https://docs.google.com/document/d/1Z8iZJEUJCuQU9y5WGjTUowxDytbd930Bommk98m_fM8/edit
 

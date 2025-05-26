@@ -12,7 +12,7 @@ spring:
     driver-class-name: org.postgresql.Driver
 
 bobEvents:
-  queueNamePrefix: KotlinTemplate
+  queueNamePrefix: HibobPublicMcp
 
 customMetrics:
   agentHost: ${DD_AGENT_HOST:localhost}

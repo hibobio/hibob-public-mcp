@@ -51,7 +51,7 @@ tasks {
     }
 
     test {
-        val defaultDbUrl = "jdbc:postgresql://localhost:5432/kotlin-template?user=bob&password=dev"
+        val defaultDbUrl = "jdbc:postgresql://localhost:5432/hibob-public-mcp?user=bob&password=dev"
         val springProfiles = "development,test"
 
         val dbUrl = System.getenv("DB_URL").takeUnless { it.isNullOrBlank() } ?: defaultDbUrl

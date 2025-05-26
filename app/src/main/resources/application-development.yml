@@ -4,10 +4,10 @@ spring:
     activate:
       on-profile: development
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/kotlin-template?user=bob&password=dev}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hibob-public-mcp?user=bob&password=dev}
 
 server:
-  port: ${PORT:0}
+  port: 9416
 
 redis:
   url: ${REDIS_URL:redis://0.0.0.0:6379}
@@ -33,7 +33,7 @@ authentication:
   cookieName: BOB_SESS_ID
 
 kms:
-  keyId: alias/kotlin-template-dev-key
+  keyId: alias/hibob-public-mcp-dev-key
 
 s2s:
   keyId: alias/s2s-dev-key
