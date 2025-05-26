@@ -1,0 +1,26 @@
+schema-version: v2.2
+dd-service: kotlin-template
+team: sre-team
+application: kotlin-template
+tier: "1"
+type: web
+languages:
+  - jvm
+links:
+  - name: Source
+    type: repo
+    provider: github
+    url: https://github.com/hibobio/kotlin-template
+  - name: Deployment
+    type: repo
+    provider: github
+    url: https://github.com/hibobio/kotlin-template
+tags:
+  - service:kotlin-template
+integrations:
+  pagerduty:
+    service-url: https://hibob.eu.pagerduty.com/service-directory/TODO
+extensions:
+  additionalProperties:
+    advocate: devops@hibob.io
+    leader: devops@hibob.io

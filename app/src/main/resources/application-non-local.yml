@@ -1,0 +1,57 @@
+spring:
+  config:
+    activate:
+      on-profile: non-local
+  datasource:
+    url: ${DB_URL}
+
+redis:
+  url: ${REDIS_URL:}
+
+management:
+  statsd:
+    metrics:
+      export:
+        host: ${DD_AGENT_HOST:localhost}
+        port: 8125
+        protocol: "udp"
+        enabled: ${IS_CUSTOM_METRICS_ENABLED:false}
+
+server:
+  port: 9000
+
+environment:
+  name: Prod
+  singleton: true
+  local: false
+
+authentication:
+  sessionServiceUrl: http://user-sessions
+  cookieName: ${COOKIE_NAME}
+
+kms:
+  keyId: ${KMS_S2S_KEY_ID}
+
+s2s:
+  keyId: ${S2S_KEY_ID}
+
+aws:
+  region: ${AWS_REGION}
+
+bob:
+  authentication:
+    url: http://hibob
+  url: http://hibob
+  topicArn: ${BOB_NOTIFICATION_EVENTS_TOPIC}
+
+userNotifications:
+  topicArn: ${USER_NOTIFICATIONS_TOPIC}
+
+logging:
+  config: classpath:logback-non-local.xml
+
+hibob:
+  toggles:
+    url: ${TOGGLES_URL:-http://toggles}
+    companySize: ${COMPANY_SIZE:-5000}
+    toggleSize: ${TOGGLE_SIZE:-5000}

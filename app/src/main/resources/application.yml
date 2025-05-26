@@ -1,0 +1,31 @@
+spring:
+  jmx:
+    enabled: false
+  profiles:
+    active: ${SPRING_PROFILE_ACTIVE:non-local}
+  datasource:
+    hikari:
+      connectionTimeout: 20000
+      maximumPoolSize: 5
+      data-source-properties:
+        charSet: UTF-8
+    driver-class-name: org.postgresql.Driver
+
+bobEvents:
+  queueNamePrefix: KotlinTemplate
+
+customMetrics:
+  agentHost: ${DD_AGENT_HOST:localhost}
+  enabled: ${IS_CUSTOM_METRICS_ENABLED:false}
+  agentPort: 8125
+  defaultTags: { }
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+      base-path: /
+      path-mapping:
+        health: healthcheck

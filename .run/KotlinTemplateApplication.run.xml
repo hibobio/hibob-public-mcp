@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="KotlinTemplateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <option name="ACTIVE_PROFILES" value="development" />
+    <module name="kotlin-template.app.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.hibob.KotlinTemplateApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="gradle flyway" run_configuration_type="ShConfigurationType" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,57 @@
+
+spring:
+  config:
+    activate:
+      on-profile: development
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/kotlin-template?user=bob&password=dev}
+
+server:
+  port: ${PORT:0}
+
+redis:
+  url: ${REDIS_URL:redis://0.0.0.0:6379}
+
+environment:
+  name: ${ENV_NAME:Dev}
+  singleton: false
+  local: true
+
+authentication:
+  sessionServiceUrl: ${SESSION_SERVICE_URL:http://localhost:9484}
+  jwtPublicKey: |
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtl6RZ/UEZ+E4ZqEdz7YA
+    zXtanyIh6CxRxtP+wM7EIjuuNzxwUNadUXGM18hfUHvRhuRepXHnm8pN8OaYCkCG
+    E38mI+8o+gS7UZ8HBaq7oGk27ooPe2urgixxnnA7qDNjUV/RBY6HxCpovwQ1QL58
+    8becg8x9K1u3JwiJo3TD8Hf2BjfMouJrICW9pXUfE7Vd7dxvzY/KKnsggDhwluvR
+    bh2Y7UbHCq70MK5BSE0NM2uVHsm/lBdqhumnEU+HS9fqAegeaGZOWpTaLXXzmaOl
+    wgH1F4tVkXZiwq3U3iZGVIE7DvqwWXo09RRq2UgVYfAV5XAe9TlQvQPpZfGZG33l
+    hwIDAQAB
+    -----END PUBLIC KEY-----
+
+  cookieName: BOB_SESS_ID
+
+kms:
+  keyId: alias/kotlin-template-dev-key
+
+s2s:
+  keyId: alias/s2s-dev-key
+
+aws:
+  region: eu-west-1
+
+bob:
+  authentication:
+    url: ${?BOB_URL:http://localhost:9000}
+  url: ${?BOB_URL:http://localhost:9000}
+  topicArn: arn:aws:sns:eu-west-1:581316237707:hibob-dev-local-eu-west-1-backend-notifications
+
+userNotifications:
+  topicArn: arn:aws:sns:eu-west-1:581316237707:hibob-dev-local-eu-west-1-user-notifications
+
+hibob:
+  toggles:
+    url: http://localhost:9471
+    companySize: 5000
+    toggleSize: 5000
