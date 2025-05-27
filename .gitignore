@@ -1,8 +1,6 @@
-.DS_Store
-.gradle/
+dist/
 build/
-gradlew.bat
-out/
-.idea
-target/
-sonarlint/
+*.egg-info/
+__pycache__/
+.idea*/
+.cursor*/
