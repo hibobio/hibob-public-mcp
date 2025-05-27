@@ -8,8 +8,8 @@ setup(
         "fastmcp",
         "requests"
     ],
-    author="Your Name",
-    author_email="your@email.com",
+    author="Ori Danus",
+    author_email="ori.danus@hibob.com",
     description="HiBob MCP server integration.",
     long_description=open("README.md").read() if __import__('os').path.exists('README.md') else "",
     long_description_content_type="text/markdown",
