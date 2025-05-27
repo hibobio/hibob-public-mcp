@@ -20,6 +20,24 @@ uvx run mcp-server:mcp
 
 Set the `HIBOB_API_TOKEN` environment variable with your HiBob API token.
 
+cursor example:
+```bash
+{
+  "mcpServers": {
+    "My MCP Server": {
+      "command": "uvx",
+      "args": ["hibob-public-mcp"]
+      "env": {
+        "HIBOB_API_TOKEN": "your-hibob-api-service-user-token"
+      }
+    },
+    "mcp-datetime": {
+      "command": "uvx",
+      "args": ["mcp-datetime"]
+    }
+  }
+} 
+
 ## License
 
 MIT 
