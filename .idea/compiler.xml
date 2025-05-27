@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="11">
+      <module name="hibob-public-mcp.app" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="hibob-public-mcp.app" options="-parameters" />
+      <module name="hibob-public-mcp.app.main" options="-parameters" />
+      <module name="hibob-public-mcp.app.test" options="-parameters" />
+    </option>
+  </component>
+</project>

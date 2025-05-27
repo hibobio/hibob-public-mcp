@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "My MCP Server": {
+      "command": "/Users/ori.danus/projects/hibob-public-mcp/.venv/bin/fastmcp",
+      "args": [
+        "run",
+        "/Users/ori.danus/projects/hibob-public-mcp/mcp-server.py:mcp"
+      ],
+      "env": {
+        "HIBOB_API_TOKEN": "U0VSVklDRS03MTc1OnlWaWF0VEpHVUYwSnk5ZGxkZjUzWE9pUVpXY2M4V0xxZVlqb0NBamU="
+      }
+    },
+    "mcp-datetime": {
+      "command": "uvx",
+      "args": ["mcp-datetime"]
+    }
+  }
+} 
