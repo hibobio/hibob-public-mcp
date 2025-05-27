@@ -13,7 +13,7 @@ setup(
     description="HiBob MCP server integration.",
     long_description=open("README.md").read() if __import__('os').path.exists('README.md') else "",
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/hibob-public-mcp",
+    url="https://github.com/hibobio/hibob-public-mcp",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
