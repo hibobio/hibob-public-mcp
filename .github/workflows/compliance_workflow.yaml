@@ -1,7 +1,0 @@
-name: Compliance workflow
-
-on: [pull_request]
-
-jobs:
-  test:
-    uses: hibobio/reusable-workflows/.github/workflows/validate-asana-link-in-pr.yaml@master    

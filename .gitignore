@@ -6,3 +6,5 @@ out/
 .idea
 target/
 sonarlint/
+.cursor/
+dist/
