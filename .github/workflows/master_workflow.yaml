@@ -1,0 +1,12 @@
+name: Master workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Master-workflow:
+    if: github.repository != 'hibobio/kotlin-template' && github.event.head_commit.message != 'Initial commit'
+    uses: hibobio/reusable-workflows/.github/workflows/master.yaml@master
+    secrets: inherit

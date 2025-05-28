@@ -1,0 +1,11 @@
+name: Setup gradle cache
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '5 3 1 * *'
+
+jobs:
+  setup-gradle-cache:
+    uses: hibobio/reusable-workflows/.github/workflows/setup-gradle-cache.yaml@master
+    secrets: inherit

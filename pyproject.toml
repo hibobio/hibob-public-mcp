@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hibob-public-mcp"
+version = "0.1.6"
+description = "HiBob MCP server integration."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Ori Danus", email = "ori.danus@hibob.com" }
+]
+dependencies = [
+    "fastmcp",
+    "requests"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[tool.setuptools]
+packages = ["hibob_public_mcp"]
+
+[project.scripts]
+hibob-public-mcp = "hibob_public_mcp.cli:main" 
