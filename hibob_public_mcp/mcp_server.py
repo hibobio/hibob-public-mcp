@@ -11,7 +11,8 @@ def _hibob_api_call(endpoint: str, body: dict = None, method: str = "POST") -> d
     hibob_token = os.environ.get("HIBOB_API_TOKEN", "")
     headers = {
         'authorization': f'Basic {hibob_token}',
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'X-Requested-With': 'hibob-public-mcp'
     }
     if method == "GET":
         response = requests.get(url, headers=headers)
