@@ -3,7 +3,10 @@ import requests
 import os
 
 # Create a server instance
-mcp = FastMCP(name="MyAssistantServer")
+mcp = FastMCP(
+    name="MyAssistantServer", 
+              instructions="You are a helpful assistant that can help with tasks related to HiBob. You can use the tools provided to you to get information and perform actions. when using search tools, you need to use the filters to get the employee you are looking for. if you are not sure about the employee, you can use the search tools always use metadata to get the fields"              
+              )
 
 def _hibob_api_call(endpoint: str, body: dict = None, method: str = "POST") -> dict:
     """Helper to call the HiBob API with proper headers, supporting GET and POST."""
@@ -26,9 +29,11 @@ def _hibob_api_call(endpoint: str, body: dict = None, method: str = "POST") -> d
     return response.json()
 
 @mcp.tool()
-def hibob_people_search(fields: list = None, filters: list = None) -> dict:
+def hibob_people_search(fields: list = None, filters: list = None, showInactive: bool = False) -> dict:
     """
     Search for employees in HiBob using advanced filters.
+
+    To get available field paths for fields always use the hibob_get_employee_fields tool before using this tool.
 
     Parameters:
         fields (list, optional): List of field paths to return for each employee. Use hibob_get_employee_fields to discover available fields.
@@ -52,13 +57,24 @@ def hibob_people_search(fields: list = None, filters: list = None) -> dict:
 
         to find employee by name you need to fetch with empty filters and then filter by name by yourself.
 
-    To get available field paths for fields, use the hibob_get_employee_fields tool.
+        showInactive = true
+            to the filters to get all employees including inactive ones - use this to show new hires, or terminated employees, or employees on leave statues
+         
+        Example:
+        hibob_people_search(
+        fields=["root.id", "root.firstName", "root.surname", "root.email"],
+        filters=[{"fieldPath": "root.id", "operator": "equals", "values": ["EMPLOYEE_ID"]}]
+        showInactive=true)
+
+
     """
     body = {}
     if fields:
         body["fields"] = fields
     if filters:
         body["filters"] = filters
+    if showInactive:
+        body["showInactive"] = showInactive
     return _hibob_api_call("people/search", body)
 
 @mcp.tool()
@@ -108,7 +124,6 @@ def hibob_submit_timeoff_request(employee_id: str, request_details: dict) -> dic
                 - endDatePortion: Value must be 'all_day'. mandatory.
                 - startDate (str): Start date in YYYY-MM-DD format
                 - endDate (str): End date in YYYY-MM-DD format
-                - days (float): Number of days requested
                 - reason (str, optional): Reason for the request
                 - comment (str, optional): Additional comments
                 - halfDay (bool, optional): If the request is for a half day
@@ -170,6 +185,23 @@ def hibob_get_employee_tasks(employee_id: str) -> dict:
     See: https://apidocs.hibob.com/reference/get_tasks-people-id
     """
     endpoint = f"tasks/people/{employee_id}"
+    return _hibob_api_call(endpoint, method="GET")
+
+@mcp.tool()
+def hibob_get_timeoff_balance(employee_id: str) -> dict:
+    """
+    Get the timeoff balance for a given employee.
+
+    Parameters:
+        employee_id (str): The HiBob employee ID.
+
+    Example usage:
+        hibob_get_timeoff_balance("EMPLOYEE_ID")
+
+    See: https://api.hibob.com/v1/timeoff/employees/{id}/balance
+    API Docs: https://apidocs.hibob.com/reference/get_timeoff-employees-id-balance
+    """
+    endpoint = f"timeoff/employees/{employee_id}/balance"
     return _hibob_api_call(endpoint, method="GET")
 
 if __name__ == "__main__":

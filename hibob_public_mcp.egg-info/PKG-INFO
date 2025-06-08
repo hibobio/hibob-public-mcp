@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: hibob-public-mcp
-Version: 0.1.6
+Version: 0.1.11
 Summary: HiBob MCP server integration.
 Author-email: Ori Danus <ori.danus@hibob.com>
 Classifier: Programming Language :: Python :: 3
