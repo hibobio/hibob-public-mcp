@@ -118,8 +118,8 @@ def hibob_submit_timeoff_request(employee_id: str, request_details: dict) -> dic
         employee_id (str): The HiBob employee ID.
         request_details (dict): The request body as required by the API. See the API docs for required fields for each request type.
             Common parameters for a Holiday request include:
-                - type (str): The time off type, e.g., "Holiday"
-                - requestRangeType: Value must be 'days'. mandatory.
+                - policyType (str): The time off type, e.g., "Holiday"
+                - requestRangeType: Value must be 'days'. mandatory. (automatically added)
                 - startDatePortion: Value must be 'all_day'. mandatory.
                 - endDatePortion: Value must be 'all_day'. mandatory.
                 - startDate (str): Start date in YYYY-MM-DD format
@@ -134,12 +134,11 @@ def hibob_submit_timeoff_request(employee_id: str, request_details: dict) -> dic
                 hibob_submit_timeoff_request(
                     "EMPLOYEE_ID",
                     {
-                        "type": "Holiday",
+                        "policyType": "Holiday",
                         "startDate": "2024-07-01",
                         "endDate": "2024-07-05",
                         "startDatePortion": 'all_day',
                         "endDatePortion": 'all_day',
-                        "requestRangeType": 'days',
                         "reason": "Vacation",
                         "comment": "Family trip",
                         "halfDay": False
@@ -148,6 +147,9 @@ def hibob_submit_timeoff_request(employee_id: str, request_details: dict) -> dic
     
     See: https://apidocs.hibob.com/reference/post_timeoff-employees-id-requests
     """
+    # Always ensure requestRangeType is set to "days"
+    request_details["requestRangeType"] = "days"
+    
     endpoint = f"timeoff/employees/{employee_id}/requests"
     return _hibob_api_call(endpoint, body=request_details, method="POST")
 
