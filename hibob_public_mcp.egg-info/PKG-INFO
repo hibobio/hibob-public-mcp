@@ -1,0 +1,38 @@
+Metadata-Version: 2.4
+Name: hibob-public-mcp
+Version: 0.1.6
+Summary: HiBob MCP server integration.
+Author-email: Ori Danus <ori.danus@hibob.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: fastmcp
+Requires-Dist: requests
+
+# hibob-public-mcp
+
+A FastMCP server for HiBob integration.
+
+## Installation
+
+```bash
+pip install hibob-public-mcp
+```
+
+## Usage
+
+After installation, you can run the MCP server with uvx:
+
+```bash
+uvx run mcp-server:mcp
+```
+
+## Configuration
+
+Set the `HIBOB_API_TOKEN` environment variable with your HiBob API token.
+
+## License
+
+MIT 

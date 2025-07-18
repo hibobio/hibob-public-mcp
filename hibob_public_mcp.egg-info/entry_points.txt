@@ -1,0 +1,2 @@
+[console_scripts]
+hibob-public-mcp = hibob_public_mcp.cli:main

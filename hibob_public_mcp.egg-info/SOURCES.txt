@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+hibob_public_mcp/__init__.py
+hibob_public_mcp/cli.py
+hibob_public_mcp/mcp_server.py
+hibob_public_mcp.egg-info/PKG-INFO
+hibob_public_mcp.egg-info/SOURCES.txt
+hibob_public_mcp.egg-info/dependency_links.txt
+hibob_public_mcp.egg-info/entry_points.txt
+hibob_public_mcp.egg-info/requires.txt
+hibob_public_mcp.egg-info/top_level.txt
