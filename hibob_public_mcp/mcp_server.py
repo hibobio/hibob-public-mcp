@@ -1,4 +1,5 @@
 from fastmcp import FastMCP
+from typing import Literal, Union
 import requests
 import os
 
@@ -25,7 +26,7 @@ def _hibob_api_call(endpoint: str, body: dict = None, method: str = "POST") -> d
     return response.json()
 
 @mcp.tool()
-def hibob_people_search(fields: list = None, filters: list = None) -> dict:
+def hibob_people_search(fields: list = None, filters: list = None, human_readable: Union[Literal["REPLACE"], None] = None) -> dict:
     """
     Search for employees in HiBob using advanced filters.
 
@@ -50,6 +51,8 @@ def hibob_people_search(fields: list = None, filters: list = None) -> dict:
         ]
 
         to find employee by name you need to fetch with empty filters and then filter by name by yourself.
+        human_readable (str, optional): Set to "REPLACE" to get human-readable values instead of machine-format.
+            By default, returns machine-format values.
 
     To get available field paths for fields, use the hibob_get_employee_fields tool.
     """
@@ -58,6 +61,8 @@ def hibob_people_search(fields: list = None, filters: list = None) -> dict:
         body["fields"] = fields
     if filters:
         body["filters"] = filters
+    if human_readable == "REPLACE":
+        body["humanReadable"] = "REPLACE"
     return _hibob_api_call("people/search", body)
 
 @mcp.tool()
